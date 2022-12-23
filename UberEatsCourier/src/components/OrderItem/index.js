@@ -1,9 +1,11 @@
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-const OrderItem = ({order}) => {
+const OrderItem = ({order, navigation}) => {
   return (
-    <View style={styles.OrderItem}>
+    <Pressable
+      style={styles.OrderItem}
+      onPress={() => navigation.navigate('OrderDelivery')}>
       <Image source={{uri: order.Restaurant.image}} style={styles.image} />
       <View
         style={{
@@ -22,7 +24,7 @@ const OrderItem = ({order}) => {
       <View style={styles.CheckIcon}>
         <Entypo name="check" size={40} color="white" />
       </View>
-    </View>
+    </Pressable>
   );
 };
 
